@@ -1,0 +1,18 @@
+{
+    "contents" : "library(\"RSQLite\")\nlibrary(\"dplyr\")\n\n#make a database\nmy_db <- src_sqlite(\"my_db.sqlite3\", create = T)\n\nTable_1=read.csv(\"amazon_test.csv\")\n\n\ncopy_to(my_db, Table_1)\n\nquery=\"SELECT Account_id, Month, Payment\"\nquery=paste(query,\"FROM Table_1 join (\")\nquery=paste(query,\"SELECT max(Payment), Account_id, Month\")\nquery=paste(query,\"FROM Table_1 join (\")\nquery=paste(query,\"SELECT distinct Account_id\")\nquery=paste(query,\"FROM Table_1\")\nquery=paste(query,\") using(Account_id)\")\nquery=paste(query,\"GROUP BY Account_id\")\nquery=paste(query,\") using(Account_id, Month)\")\nquery=paste(query,\"ORDER BY Payment DESC\")\n\ntbl(my_db, sql(query))\n\n  \n  \n\n",
+    "created" : 1435174568264.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2688677417",
+    "id" : "D06C0FAE",
+    "lastKnownWriteTime" : 1442354220,
+    "path" : "~/RMySQL_Practice/RSQLLite.R",
+    "project_path" : "RSQLLite.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 0,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

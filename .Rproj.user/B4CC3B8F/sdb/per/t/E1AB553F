@@ -1,0 +1,18 @@
+{
+    "contents" : "library(DBI)\nlibrary(RMySQL)\nlibrary(dbConnect)\nuid=\"root\"\npwd=\"1234\"\ndb=\"rmysql_test\"\nhost_ip=\"localhost\"\ndrv <- dbDriver(\"MySQL\")\ncon<-dbConnect(drv,user=uid,password=pwd,host=host_ip)\ncon<-dbConnect(drv, \"testdb\", username=\"testuser\", password=\"testpass\")\n  \n  ",
+    "created" : 1435168765381.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1679651265",
+    "id" : "E1AB553F",
+    "lastKnownWriteTime" : 1442354208,
+    "path" : "~/RMySQL_Practice/RMySQL.R",
+    "project_path" : "RMySQL.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 0,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
